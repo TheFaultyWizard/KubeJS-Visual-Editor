@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KubeJS / Simple</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  #layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+  }
+  #layout h2 { margin: 8px; }
+  #header-left { grid-column: 1; grid-row: 1; text-align: left; }
+  #header-right { grid-column: 3; grid-row: 1; text-align: right; }
+  #kubejs-text { grid-column: 1; grid-row: 2; }
+  #simple-text { grid-column: 3; grid-row: 2; }
+  textarea { width: 100%; height: 100%; box-sizing: border-box; resize: none; font-family: monospace; white-space: pre; }
+  #buttons {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+    justify-content: center;
+    align-content: center;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="converter.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+<div id="layout">
+  <h2 id="header-left">KubeJS</h2>
+  <h2 id="header-right">Simple</h2>
+
+  <textarea id="kubejs-text"></textarea>
+
+  <div id="buttons">
+    <button id="btn-to-kubejs">To KubeJS</button>
+    <button id="btn-from-kubejs">From KubeJS</button>
+    <button id="btn-upload-kubejs">Upload KubeJS</button>
+    <button id="btn-upload-simple">Upload Simple</button>
+    <button id="btn-export-kubejs">Export KubeJS</button>
+    <button id="btn-export-simple">Export Simple</button>
+  </div>
+
+  <textarea id="simple-text"></textarea>
+</div>
+</body>
+</html>

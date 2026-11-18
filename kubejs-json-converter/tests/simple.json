@@ -1,0 +1,22 @@
+{
+  "format": "simple-recipes",
+  "version": 1,
+  "recipes": [
+    {
+      "type": "shaped",
+      "output": { "item": "minecraft:stone", "count": 3 },
+      "pattern": ["A B", " C ", "B A"],
+      "key": {
+        "A": { "item": "minecraft:andesite" },
+        "B": { "item": "minecraft:diorite" },
+        "C": { "item": "minecraft:granite" }
+      }
+    },
+    {
+      "type": "smoking",
+      "input": { "item": "minecraft:glass" },
+      "output": { "item": "minecraft:tinted_glass", "count": 1 },
+      "xp": 0.35
+    }
+  ]
+}
