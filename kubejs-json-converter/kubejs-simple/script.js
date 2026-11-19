@@ -129,7 +129,7 @@ function exportSimple() {
 
 
 window.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("simple-text").value = exampleSimpleText();   // sample of every recipe type
+  // document.getElementById("simple-text").value = exampleSimpleText();   // sample of every recipe type
 
   document.getElementById("btn-to-kubejs").addEventListener("click", toKubeJS);
   document.getElementById("btn-from-kubejs").addEventListener("click", fromKubeJS);
@@ -138,3 +138,5 @@ window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-export-kubejs").addEventListener("click", exportKubeJS);
   document.getElementById("btn-export-simple").addEventListener("click", exportSimple);
 });
+
+
