@@ -24,23 +24,26 @@ function rgbToHsl(red, green, blue) {
 
 function lightnessFlip(colour) {
     const numbers = colour.match(/\d+/g)
-    const [red, green, blue] = numbers.slice(0, 3).map(Number);
+    const [red, green, blue, alpha] = numbers.slice(0, numbers.length).map(Number);
+    console.log(red, green, blue, alpha);
     const [hue, saturation, lightness] = rgbToHsl(red, green, blue);
-    return `hsl(${hue} ${saturation}% ${100 - lightness}%)`;
+    return (alpha !== undefined) ? `hsla(${hue} ${saturation}% ${100 - lightness}% ${alpha})` : `hsl(${hue} ${saturation}% ${100 - lightness}%)`;
 }
 
 function toggleDarkMode() {
     document.querySelectorAll('*').forEach(element => {
         const style = getComputedStyle(element);
-        element.style.color = lightnessFlip(style.color);
-        element.style.backgroundColor = lightnessFlip(style.backgroundColor);
+        console.log(style.color + (element.style.color = lightnessFlip(style.color)));
+        console.log(style.backgroundColor + (element.style.backgroundColor = lightnessFlip(style.backgroundColor)));
     })
 }
 
 function initialise() {
     document.querySelectorAll('*').forEach(element => {
         const style = getComputedStyle(element);
-        element.style.backgroundColor = style.backgroundColor;
-        element.style.color = style.color;
+        console.log(style.color);
+        if (style.backgroundColor === 'rgba(0, 0, 0, 0)') {
+            element.style.backgroundColor = 'rgb(255, 255, 255)';
+        }
     })
 }
