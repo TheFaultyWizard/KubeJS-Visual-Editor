@@ -74,3 +74,218 @@
     height: 40px;
     background: #555;
 }
+
+/* ---------- additions: shared page chrome, recipe page, item palette ---------- */
+
+body
+{
+    margin: 0;
+}
+
+.sidebars button
+{
+    width: 100%;
+    font-size: 16px;
+    padding: 6px 4px;
+    cursor: pointer;
+}
+
+.right-sidebar a
+{
+    font-size: 20px;
+}
+
+.right-sidebar a.active
+{
+    color: #000;
+    background-color: #9ab;
+}
+
+.right-sidebar a:hover
+{
+    color: #000;
+}
+
+.main.page
+{
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title
+{
+    margin: 12px 0 0 0;
+    font-size: 22px;
+    color: #555;
+}
+
+.page-note
+{
+    color: #818181;
+}
+
+.craft-area
+{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+.grid-cell,
+.output-cell
+{
+    position: relative;
+    box-sizing: border-box;
+}
+
+.grid-cell.drop-hover,
+.output-cell.drop-hover
+{
+    outline: 2px solid #fc3;
+    outline-offset: -2px;
+}
+
+.output-wrap
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.output-count
+{
+    width: 52px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.output-count-label
+{
+    font-size: 12px;
+    color: #818181;
+}
+
+.item-sprite
+{
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.draggable-item
+{
+    touch-action: none;
+    user-select: none;
+    cursor: grab;
+}
+
+.slot-item
+{
+    position: absolute;
+    inset: 4px;
+}
+
+.draggable-item.dragging-source
+{
+    opacity: 0.4;
+}
+
+.drag-ghost
+{
+    position: fixed;
+    z-index: 1000;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+.palette-section
+{
+    border-top: 1px solid #abc;
+    padding: 8px 0 10px 0;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+.palette-header
+{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.palette-header input
+{
+    flex: 1;
+    max-width: 320px;
+    padding: 4px 6px;
+}
+
+.palette-status
+{
+    color: #818181;
+    font-size: 13px;
+}
+
+.palette-grid
+{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2px;
+}
+
+.palette-item
+{
+    width: 40px;
+    height: 40px;
+    background: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.palette-item[hidden]
+{
+    display: none;
+}
+
+.item-tooltip
+{
+    position: fixed;
+    z-index: 1001;
+    display: none;
+    pointer-events: none;
+    padding: 3px 8px;
+    background: #222;
+    color: #fff;
+    border: 1px solid #000;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.craft-area
+{
+    flex-direction: column;
+}
+
+.recipe-options
+{
+    margin-top: 18px;
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+}

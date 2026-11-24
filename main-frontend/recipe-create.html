@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-style.css">
+    <title>Recipe Creation</title>
+    <script defer src="https://unpkg.com/dexie/dist/dexie.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script defer src="../kubejs-json-converter/kubejs-simple/converter.js"></script>
+    <script defer src="shared.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js"></script>
+    <script defer src="items-hook.js"></script>
+    <script defer src="recipe-types.js"></script>
+    <script defer src="recipe-create.js"></script>
+</head>
+<body>
+    <div class="sidebars">
+        <div class="left-sidebar">
+            <a><button id="btn-upload-scripts">Upload Scripts</button></a>
+            <a><button id="btn-download-scripts">Download Scripts</button></a>
+        </div>
+        <div class="right-sidebar">
+            <a href="recipe-create.html" class="active">Recipe Creation</a>
+            <a href="recipe-edit.html">Recipe Editing</a>
+            <a href="item-create.html">Item Creation</a>
+            <a href="loot-edit.html">Loot Tables</a>
+        </div>
+    </div>
+
+    <div class="main page">
+        <h1 class="page-title">Recipe Creation</h1>
+
+        <div class="craft-area">
+            <div class="grid-container">
+
+                <div class="input-grid">
+                    <div class="grid-cell" data-slot="0"></div>
+                    <div class="grid-cell" data-slot="1"></div>
+                    <div class="grid-cell" data-slot="2"></div>
+                    <div class="grid-cell" data-slot="3"></div>
+                    <div class="grid-cell" data-slot="4"></div>
+                    <div class="grid-cell" data-slot="5"></div>
+                    <div class="grid-cell" data-slot="6"></div>
+                    <div class="grid-cell" data-slot="7"></div>
+                    <div class="grid-cell" data-slot="8"></div>
+                </div>
+
+                <span class="grid-arrow">→</span>
+
+                <div class="output-grid">
+                    <div class="output-wrap">
+                        <div class="output-cell" data-slot="out"></div>
+                        <input class="output-count" id="output-count" type="number" min="1" max="64" step="1" value="1" title="Output count (1-64)">
+                    </div>
+                </div>
+
+            </div>
+
+            <label class="recipe-options">
+                <input type="checkbox" id="shapeless-toggle"> enable shapeless
+            </label>
+        </div>
+
+        <div class="palette-section">
+            <div class="palette-header">
+                <input id="palette-search" type="search" placeholder="Search items">
+                <select id="palette-type">
+                    <option value="item">Items</option>
+                    <option value="fluid">Fluids</option>
+                </select>
+                <span class="palette-status" id="palette-status">Loading items...</span>
+            </div>
+            <div class="palette-grid" id="palette-grid"></div>
+        </div>
+    </div>
+    <div class="item-tooltip" id="item-tooltip"></div>
+</body>
+</html>
