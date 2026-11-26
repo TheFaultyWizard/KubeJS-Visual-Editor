@@ -134,6 +134,7 @@ body
     align-items: center;
     justify-content: center;
     min-height: 0;
+    color: black;
 }
 
 .grid-cell,
