@@ -9,12 +9,14 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script defer src="../kubejs-json-converter/kubejs-simple/converter.js"></script>
     <script defer src="shared.js"></script>
+    <script src="../kubejs-json-converter/kubejs-simple/lightnessInverter.js"></script>
 </head>
 <body>
     <div class="sidebars">
         <div class="left-sidebar">
             <a><button id="btn-upload-scripts">Upload Scripts</button></a>
             <a><button id="btn-download-scripts">Download Scripts</button></a>
+            <a><button id="btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button></a>
         </div>
         <div class="right-sidebar">
             <a href="recipe-create.html">Recipe Creation</a>

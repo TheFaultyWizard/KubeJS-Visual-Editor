@@ -13,12 +13,14 @@
     <script defer src="recipe-types.js"></script>
     <script defer src="recipe-model.js"></script>
     <script defer src="my-recipes.js"></script>
+    <script src="../kubejs-json-converter/kubejs-simple/lightnessInverter.js"></script>
 </head>
 <body>
     <div class="sidebars">
         <div class="left-sidebar">
             <a><button id="btn-upload-scripts">Upload Scripts</button></a>
             <a><button id="btn-download-scripts">Download Scripts</button></a>
+            <a><button id="btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button></a>
         </div>
         <div class="right-sidebar">
             <a href="recipe-create.html">Recipe Creation</a>

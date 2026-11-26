@@ -80,6 +80,7 @@
 body
 {
     margin: 0;
+    background-color: aliceblue;
 }
 
 .sidebars button
@@ -410,6 +411,7 @@ body
     overflow-y: auto;
     margin: 12px -10px 0 -10px;
     border-top: 1px solid #abc;
+    color: black;
 }
 
 .list-message
@@ -504,4 +506,9 @@ body
 {
     margin-bottom: 0;
     font-size: 12px;
+}
+
+option
+{
+    color: black;
 }
