@@ -146,7 +146,7 @@ function uploadScripts() {
             // the recipe being built isnt in the same spot anymore
             const draft = await getDraft();
             if (draft) {
-                draft.draftIndex = null;
+                draft.editingIndex = null;
                 await saveDraft(draft);
             }
 

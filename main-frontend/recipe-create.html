@@ -12,6 +12,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js"></script>
     <script defer src="items-hook.js"></script>
     <script defer src="recipe-types.js"></script>
+    <script defer src="recipe-model.js"></script>
     <script defer src="recipe-create.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
         </div>
         <div class="right-sidebar">
             <a href="recipe-create.html" class="active">Recipe Creation</a>
-            <a href="recipe-edit.html">Recipe Editing</a>
+            <a href="my-recipes.html">My Recipes</a>
             <a href="item-create.html">Item Creation</a>
             <a href="loot-edit.html">Loot Tables</a>
         </div>
@@ -32,19 +33,22 @@
         <h1 class="page-title">Recipe Creation</h1>
 
         <div class="craft-area">
-            <div class="grid-container">
+            <div class="recipe-controls">
+                <select id="recipe-type">
+                    <option value="crafting">Crafting</option>
+                    <option value="smithing">Smithing</option>
+                    <option value="smelting">Smelting</option>
+                    <option value="blasting">Blasting</option>
+                    <option value="smoking">Smoking</option>
+                    <option value="campfire_cooking">Campfire cooking</option>
+                    <option value="stonecutting">Stonecutting</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <label id="shapeless-label"><input type="checkbox" id="shapeless-toggle"> enable shapeless</label>
+            </div>
 
-                <div class="input-grid">
-                    <div class="grid-cell" data-slot="0"></div>
-                    <div class="grid-cell" data-slot="1"></div>
-                    <div class="grid-cell" data-slot="2"></div>
-                    <div class="grid-cell" data-slot="3"></div>
-                    <div class="grid-cell" data-slot="4"></div>
-                    <div class="grid-cell" data-slot="5"></div>
-                    <div class="grid-cell" data-slot="6"></div>
-                    <div class="grid-cell" data-slot="7"></div>
-                    <div class="grid-cell" data-slot="8"></div>
-                </div>
+            <div class="grid-container" id="craft-layout">
+                <div class="input-grid" id="input-area"></div>
 
                 <span class="grid-arrow">→</span>
 
@@ -54,15 +58,24 @@
                         <input class="output-count" id="output-count" type="number" min="1" max="64" step="1" value="1" title="Output count (1-64)">
                     </div>
                 </div>
-
             </div>
 
-            <label class="recipe-options">
-                <input type="checkbox" id="shapeless-toggle"> enable shapeless
-            </label>
+            <div class="extra-fields" id="extra-fields" hidden>
+                <input id="xp-input" type="number" min="0" step="any" placeholder="xp">
+                <input id="cooking-time-input" type="number" min="0" step="1" placeholder="cooking time (ticks)">
+            </div>
+
+            <div class="custom-area" id="custom-area" hidden>
+                <textarea id="custom-json" spellcheck="false" placeholder='datapack recipe json, for example {"type": "farmersdelight:cutting", ...}'></textarea>
+            </div>
+
+            <div class="recipe-actions">
+                <button id="save-recipe">Save Recipe</button>
+                <span id="save-status"></span>
+            </div>
         </div>
 
-        <div class="palette-section">
+        <div class="palette-section" id="palette-section">
             <div class="palette-header">
                 <input id="palette-search" type="search" placeholder="Search items">
                 <select id="palette-type">

@@ -1,13 +1,25 @@
-// settings for each recipe type
-// hideFluids: true means fluids dont show up in the item browser for that type
-// add new recipe types here when they get added to the editor
+// layout: which input slots the recipe type uses
+// hideFluids: true hides fluids in the item browser for that type
 
 const recipeTypes = {
-    shaped: { hideFluids: true },
-    shapeless: { hideFluids: true }
+    shaped: { layout: "grid", hideFluids: true },
+    shapeless: { layout: "grid", hideFluids: true },
+    smithing: { layout: "smithing", hideFluids: true },
+    smelting: { layout: "single", hideFluids: true, cooking: true },
+    blasting: { layout: "single", hideFluids: true, cooking: true },
+    smoking: { layout: "single", hideFluids: true, cooking: true },
+    campfire_cooking: { layout: "single", hideFluids: true, cooking: true },
+    stonecutting: { layout: "single", hideFluids: true },
+    custom: { layout: "custom", hideFluids: false }
 };
 
-// debug override, see forceShowFluids below
+const layoutSlots = {
+    grid: ["0", "1", "2", "3", "4", "5", "6", "7", "8"],
+    smithing: ["template", "base", "addition"],
+    single: ["input"],
+    custom: []
+};
+
 let fluidsForced = false;
 
 function shouldHideFluids(recipeType) {
@@ -15,21 +27,16 @@ function shouldHideFluids(recipeType) {
         return false;
     }
     const settings = recipeTypes[recipeType];
-    if (settings && settings.hideFluids) {
-        return true;
-    }
-    return false;
+    return Boolean(settings && settings.hideFluids);
 }
 
-// run forceShowFluids() in the js console to show fluids no matter what
-// forceShowFluids(false) turns it back off
+// debug command for the console, forceShowFluids(false) turns it off
 function forceShowFluids(turnOn) {
     if (turnOn === undefined) {
         turnOn = true;
     }
-    fluidsForced = !!turnOn;
+    fluidsForced = Boolean(turnOn);
 
-    // refreshPalette is on the recipe page, other pages dont have it
     if (typeof refreshPalette === "function") {
         refreshPalette();
     }
