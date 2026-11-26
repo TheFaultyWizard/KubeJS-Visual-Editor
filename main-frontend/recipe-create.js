@@ -444,7 +444,7 @@ async function startPage() {
     } catch (error) {
         console.error(error);
         paletteStatus.textContent = "couldn't load Resources/Items.json (" + error.message + "). " +
-            "run python -m http.server in the KubeJS-Visual-Editor folder and open " +
+            "Either run with five server OR run python -m http.server in the KubeJS-Visual-Editor folder and open " +
             "http://localhost:8000/main-frontend/recipe-create.html";
     }
 }
