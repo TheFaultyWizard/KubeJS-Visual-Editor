@@ -61,8 +61,14 @@
             </div>
 
             <div class="extra-fields" id="extra-fields" hidden>
-                <input id="xp-input" type="number" min="0" step="any" placeholder="xp">
-                <input id="cooking-time-input" type="number" min="0" step="1" placeholder="cooking time (ticks)">
+                <div>
+                <p class="note">Exp</p>
+                <input id="xp-input" type="number" min="0" step="any" placeholder="0">
+                </div>
+                <div>
+                <p class="note">Cooking time in ticks (1/20th second)</p>
+                <input id="cooking-time-input" type="number" min="0" step="1" placeholder="200">
+                </div>
             </div>
 
             <div class="custom-area" id="custom-area" hidden>

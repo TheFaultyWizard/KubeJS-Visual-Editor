@@ -499,3 +499,9 @@ body
     padding: 4px 12px;
     cursor: pointer;
 }
+
+.note
+{
+    margin-bottom: 0;
+    font-size: 12px;
+}
